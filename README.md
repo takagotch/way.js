@@ -20,9 +20,70 @@ way.set("some.list", [
   {name:"Jacques"}
 ]);
 
-way.set("")
+way.set("someData", "hello")
 
-way.watch("se.data)
+way.set("someData", "hello");
+way.registerTransform("lolify", function(data){
+  return data + " lol";
+});
+
+way.set("some.list", ["I", "am", "list"]);
+
+$("#clickToRemove").click();
+$("#clickToPush").click();
+way.get("some.list");
+>> ["I", "am", null]
+
+way.set("image.url", "somethingThatsNotAnImageURL");
+
+way.dom("#someForm").toStorage()
+way.dom("#someForm").formStorage()
+
+way.dom("#someForm").toJSON()
+
+way.dom("#soemForm").formJSON({name:"John Doe"})
+way.dom("#someForm").getValue()
+way.dom("#someForm").setValue({name:"John Doe"})
+
+way.dom("#someForm").setDefault()
+>> {
+  its: "values",
+  serialized: {
+    in: "a json"
+  }
+}
+
+way.setDefaults()
+
+way.dom().getOptions()
+
+way.get("some.path");
+
+way.set("some.path", "bonjour!");
+
+way.clear("some.path");
+way.get("some.path");
+>> undefined
+
+way.clear();
+way.get();
+>> {}
+
+way.backup();
+
+way.restore();
+
+way.registerBindings()
+
+way.updateBindings("formData.name")
+
+way.registerRepeats()
+
+way.updateRepeats("somethingToBeLooped")
+
+way.watch("some.data", function(value){
+  console.log("Data has been updated to value: " + value);
+});
 
 way.watchAll(function(selector, value){
   console.log("The data " + selector + "has been changed.", value);
@@ -77,6 +138,10 @@ way.options.timeoutDOM = 500
   </div>
 </div>
 
+<div id="clickToRemove" way-action-remove=""></div>
+<div id="clickToPush" way-action-push="some.list"></div>
+
+<img way-data="image.url">
 
 ```
 
