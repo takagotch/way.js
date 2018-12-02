@@ -20,7 +20,19 @@ way.set("some.list", [
   {name:"Jacques"}
 ]);
 
-way.set("""se")
+way.set("")
+
+way.watch("se.data)
+
+way.watchAll(function(selector, value){
+  console.log("The data " + selector + "has been changed.", value);
+});
+
+way.options.persistent = true
+
+way.options.timeoutInput = 50
+
+way.options.timeoutDOM = 500
 ```
 
 ```
